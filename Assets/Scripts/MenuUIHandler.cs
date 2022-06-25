@@ -12,10 +12,7 @@ public class MenuUIHandler : MonoBehaviour
 {
     public ColorPicker ColorPicker;
 
-    public void NewColorSelected(Color color)
-    {
-        
-    }
+    
     
     private void Start()
     {
@@ -26,10 +23,16 @@ public class MenuUIHandler : MonoBehaviour
         ColorPicker.SelectColor(MainManager.Instance.TeamColor);
     }
 
-    public void StarButton()
+    public void NewColorSelected(Color color)
+    {
+        MainManager.Instance.TeamColor = color;
+    }
+    public void StartNew()
     {
         SceneManager.LoadScene(1);
     }
+
+   
     public void ExitButton()
     {
         MainManager.Instance.SaveColor();
@@ -53,5 +56,7 @@ public class MenuUIHandler : MonoBehaviour
         MainManager.Instance.LoadColor();
         ColorPicker.SelectColor(MainManager.Instance.TeamColor);
     }
+
+
 
 }
